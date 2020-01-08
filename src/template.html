@@ -9,8 +9,23 @@
 </head>
 
 <body>
-  <h1>Compiled!</h1>
-  <div class="container"></div>
+  <div class="container">
+    <form>
+      <label for="search" id="search__label">Location: </label>
+      <input type="text" id="search">
+      <label for="units">Units: </label>
+      <select name="units" id="units">
+        <option value="metric">C°</option>
+        <option value="imperial">F°</option>
+      </select>
+      <button class="btn-search">Search</button>
+    </form>
+
+    <div class="info">
+      <h3 class="info__city">City: </h3>
+      <h3 class="info__temper">Temperature: </h3>
+    </div>
+  </div>
 </body>
 
 </html>
