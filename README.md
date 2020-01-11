@@ -1,4 +1,4 @@
-# fat-food.
+# Cloudier
 
 > This project is a weather app that looks for a city and returns the most common information regarding the weather of the given city. It uses the OpenWeather API and handles all the assets through Webpack.
 
@@ -13,10 +13,6 @@
 - Javascript,
 - Webpack,
 - OpenWeather API
-
-## Live Demo
-
-[Live Demo Link](https://raw.githack.com/rociac/fat-food/webpack/dist/index.html)
 
 ## Installation
 
