@@ -26,7 +26,6 @@ async function getWeather(location, unit) {
   } catch (e) {
     error.innerHTML = 'You must enter a valid city';
     error.classList = 'error active';
-
   }
 }
 
