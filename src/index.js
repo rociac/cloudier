@@ -24,7 +24,9 @@ async function getWeather(location, unit) {
     icon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
     iconContainer.appendChild(icon);
   } catch (e) {
-    alert('Enter a valid city');
+    error.innerHTML = 'You must enter a valid city';
+    error.classList = 'error active';
+
   }
 }
 

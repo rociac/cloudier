@@ -4,7 +4,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: ['html-loader'],
       },
       {
         test: /\.(svg|png|jpg|gif)$/,
@@ -13,10 +13,10 @@ module.exports = {
           options: {
             name: '[name]-[hash].[ext]',
             outputPath: 'img',
-            esModule: false
-          }
-        }
-      }
-    ]
-  }
-}
+            esModule: false,
+          },
+        },
+      },
+    ],
+  },
+};
