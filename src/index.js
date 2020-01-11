@@ -8,12 +8,11 @@ import domManager from './js/info';
 const APIKEY = 'eaed0043eb661ba7a7f56160196f9ad9';
 const btn = document.querySelector('.search__btn');
 const search = document.getElementById('search__input');
-const form = document.querySelector('.search');
 const error = document.querySelector('.error');
 
 async function getWeather(location, unit) {
   const container = document.querySelector('.info');
-  container.innerHTML = "";
+  container.innerHTML = '';
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${APIKEY}&units=${unit}`, { mode: 'cors' });
     const weatherData = await response.json();
@@ -36,7 +35,7 @@ function searchLocation() {
 }
 
 const init = () => {
-  btn.addEventListener('click', event => {
+  btn.addEventListener('click', (event) => {
     if (search.validity.valueMissing) {
       error.innerHTML = 'You must enter a city name';
       error.classList = 'error active';
@@ -47,7 +46,7 @@ const init = () => {
       document.getElementById('search__input').value = '';
     }
   }, false);
-}
+};
 
 document.addEventListener('DOMContentLoaded', init);
 

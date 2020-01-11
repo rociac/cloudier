@@ -15,7 +15,7 @@ const domManager = (() => {
     </div>
   </div>`;
     return infoElements;
-  }
+  };
 
   const setBackground = (weatherData) => {
     switch (weatherData) {
@@ -41,13 +41,12 @@ const domManager = (() => {
         body.style.backgroundImage = 'url(https://images.unsplash.com/photo-1482841628122-9080d44bb807?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80)';
         break;
     }
-  }
+  };
 
   return {
     setInfo,
     setBackground,
-  }
-
+  };
 })();
 
 export default domManager;
