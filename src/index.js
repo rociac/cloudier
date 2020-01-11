@@ -57,7 +57,3 @@ search.addEventListener('input', () => {
     error.className = 'error';
   }
 }, false);
-
-form.addEventListener('submit', (event) => {
-
-}, false);
