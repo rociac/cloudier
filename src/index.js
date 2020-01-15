@@ -29,14 +29,14 @@ const getWeather = async (location, unit) => {
     error.innerHTML = 'You must enter a valid city';
     error.classList = 'error active';
   }
-}
+};
 
 const searchLocation = () => {
   const location = document.getElementById('search__input').value.trim();
   const unit = document.getElementById('units').value;
   setUnitState(unit);
   getWeather(location, unit);
-}
+};
 
 const setUnitState = (unit) => {
   switch (unit) {
@@ -47,7 +47,7 @@ const setUnitState = (unit) => {
       checkbox.checked = true;
       break;
   }
-}
+};
 
 const init = () => {
   btn.addEventListener('click', (event) => {

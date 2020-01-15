@@ -8,10 +8,13 @@ const domManager = (() => {
         return '°C';
       case 'imperial':
         return '°F';
+      default:
+        break;
     }
+    return unit
   };
 
-  const setInfo = (weatherData) => {
+  const setInfo = weatherData => {
     const infoElements = `
   <div class="info__top">${weatherData.name}, ${weatherData.sys.country}</div>
   <div class="info__bottom">
@@ -27,7 +30,7 @@ const domManager = (() => {
     return infoElements;
   };
 
-  const setBackground = (weatherData) => {
+  const setBackground = weatherData => {
     switch (weatherData) {
       case 'Clouds':
         body.style.backgroundImage = 'url(https://images.unsplash.com/photo-1444402185522-47a923ee3e25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)';
@@ -53,9 +56,9 @@ const domManager = (() => {
     }
   };
 
-  const toFarenheit = (num) => ((num * 9 / 5) + 32).toFixed(0);
+  const toFarenheit = num => ((num * 9 / 5) + 32).toFixed(0);
 
-  const toCelsius = (num) => ((num - 32) * 5 / 9).toFixed(0);
+  const toCelsius = num => ((num - 32) * 5 / 9).toFixed(0);
 
   const getUnits = () => {
     const input = document.querySelector('.unit').checked;
@@ -65,16 +68,16 @@ const domManager = (() => {
   const changeUnits = () => {
     const mainTemp = document.querySelector('.temp');
     const mainTempText = document.querySelector('.temp').textContent;
-    let mainTempNumber = parseInt(mainTempText);
+    let mainTempNumber = parseInt(mainTempText, 10);
     const feelsLike = document.querySelector('#feel');
     const feelsLikeText = document.querySelector('#feel').textContent;
-    let feelsLikeNumber = parseInt(feelsLikeText);
+    let feelsLikeNumber = parseInt(feelsLikeText, 10);
     const highTemp = document.querySelector('#high');
     const highTempText = document.querySelector('#high').textContent;
-    let highTempNumber = parseInt(highTempText);
+    let highTempNumber = parseInt(highTempText, 10);
     const lowTemp = document.querySelector('#low');
     const lowTempText = document.querySelector('#low').textContent;
-    let lowTempNumber = parseInt(lowTempText);
+    let lowTempNumber = parseInt(lowTempText, 10);
     const units = getUnits();
     switch (units) {
       case 'metric':
@@ -104,6 +107,8 @@ const domManager = (() => {
         feelsLike.innerHTML += `${feelsLikeNumber} °C`;
         highTemp.innerHTML += `${highTempNumber} °C`;
         lowTemp.innerHTML += `${lowTempNumber} °C`;
+        break;
+      default:
         break;
     }
   };
