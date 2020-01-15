@@ -14,19 +14,25 @@
     <div class="info">
     </div>
 
+    <div class="toggle-units">
+      <span class="unitC">°C</span>
+      <label class="switch">
+        <input type="checkbox" class="unit">
+        <span class="slider round"></span>
+      </label>
+      <span class="unitF">°F</span class="unitF">
+    </div>
+
     <form class="search">
       <label for="search__input" id="search__label">Location: </label>
       <div class="search__container">
         <input type="text" id="search__input" required>
         <span class="error" aria-live="polite"></span>
       </div>
-      <label for="units">Units: </label>
-      <div class="custom-select">
-        <select name="units" id="units">
-          <option value="metric">C°</option>
-          <option value="imperial">F°</option>
-        </select>
-      </div>
+      <select name="units" id="units">
+        <option value="metric">C°</option>
+        <option value="imperial">F°</option>
+      </select>
       <button class="search__btn"><i class="fas fa-search"></i></button>
     </form>
   </div>

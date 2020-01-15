@@ -9,8 +9,10 @@ const APIKEY = 'eaed0043eb661ba7a7f56160196f9ad9';
 const btn = document.querySelector('.search__btn');
 const search = document.getElementById('search__input');
 const error = document.querySelector('.error');
+const unitToggle = document.querySelector('.switch');
+const checkbox = document.querySelector('.unit');
 
-async function getWeather(location, unit) {
+const getWeather = async (location, unit) => {
   const container = document.querySelector('.info');
   container.innerHTML = '';
   try {
@@ -29,10 +31,22 @@ async function getWeather(location, unit) {
   }
 }
 
-function searchLocation() {
+const searchLocation = () => {
   const location = document.getElementById('search__input').value.trim();
   const unit = document.getElementById('units').value;
+  setUnitState(unit);
   getWeather(location, unit);
+}
+
+const setUnitState = (unit) => {
+  switch (unit) {
+    case 'metric':
+      checkbox.checked = false;
+      break;
+    case 'imperial':
+      checkbox.checked = true;
+      break;
+  }
 }
 
 const init = () => {
@@ -43,6 +57,7 @@ const init = () => {
       event.preventDefault();
     } else {
       event.preventDefault();
+      document.querySelector('.toggle-units').style.display = 'flex';
       searchLocation();
       document.getElementById('search__input').value = '';
     }
@@ -56,4 +71,8 @@ search.addEventListener('input', () => {
     error.innerHTML = '';
     error.className = 'error';
   }
+}, false);
+
+unitToggle.addEventListener('change', () => {
+  domManager.changeUnits();
 }, false);
