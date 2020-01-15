@@ -1,6 +1,16 @@
 const domManager = (() => {
   const body = document.querySelector('body');
 
+  const setUnits = () => {
+    const unit = document.getElementById('units').value;
+    switch (unit) {
+      case 'metric':
+        return '°C';
+      case 'imperial':
+        return '°F';
+    }
+  };
+
   const setInfo = (weatherData) => {
     const infoElements = `
   <div class="info__top">${weatherData.name}, ${weatherData.sys.country}</div>
@@ -43,21 +53,17 @@ const domManager = (() => {
     }
   };
 
-  const toFarenheit = (num) => {
-    return ((num * 9 / 5) + 32).toFixed(0);
-  }
+  const toFarenheit = (num) => ((num * 9 / 5) + 32).toFixed(0);
 
-  const toCelsius = (num) => {
-    return ((num - 32) * 5 / 9).toFixed(0);
-  }
+  const toCelsius = (num) => ((num - 32) * 5 / 9).toFixed(0);
 
   const getUnits = () => {
     const input = document.querySelector('.unit').checked;
     return input ? 'metric' : 'imperial';
-  }
+  };
 
   const changeUnits = () => {
-    const mainTemp = document.querySelector('.temp')
+    const mainTemp = document.querySelector('.temp');
     const mainTempText = document.querySelector('.temp').textContent;
     let mainTempNumber = parseInt(mainTempText);
     const feelsLike = document.querySelector('#feel');
@@ -80,10 +86,10 @@ const domManager = (() => {
         feelsLikeNumber = toFarenheit(feelsLikeNumber);
         highTempNumber = toFarenheit(highTempNumber);
         lowTempNumber = toFarenheit(lowTempNumber);
-        mainTemp.innerHTML += mainTempNumber + ' °F';
-        feelsLike.innerHTML += feelsLikeNumber + ' °F';
-        highTemp.innerHTML += highTempNumber + ' °F';
-        lowTemp.innerHTML += lowTempNumber + ' °F';
+        mainTemp.innerHTML += `${mainTempNumber} °F`;
+        feelsLike.innerHTML += `${feelsLikeNumber} °F`;
+        highTemp.innerHTML += `${highTempNumber} °F`;
+        lowTemp.innerHTML += `${lowTempNumber} °F`;
         break;
       case 'imperial':
         mainTemp.innerHTML = '';
@@ -94,29 +100,19 @@ const domManager = (() => {
         feelsLikeNumber = toCelsius(feelsLikeNumber);
         highTempNumber = toCelsius(highTempNumber);
         lowTempNumber = toCelsius(lowTempNumber);
-        mainTemp.innerHTML += mainTempNumber + ' °C';
-        feelsLike.innerHTML += feelsLikeNumber + ' °C';
-        highTemp.innerHTML += highTempNumber + ' °C';
-        lowTemp.innerHTML += lowTempNumber + ' °C';
+        mainTemp.innerHTML += `${mainTempNumber} °C`;
+        feelsLike.innerHTML += `${feelsLikeNumber} °C`;
+        highTemp.innerHTML += `${highTempNumber} °C`;
+        lowTemp.innerHTML += `${lowTempNumber} °C`;
         break;
     }
-  }
-
-  const setUnits = () => {
-    const unit = document.getElementById('units').value;
-    switch (unit) {
-      case 'metric':
-        return '°C';
-      case 'imperial':
-        return '°F';
-    }
-  }
+  };
 
   return {
     setInfo,
     setBackground,
     setUnits,
-    changeUnits
+    changeUnits,
   };
 })();
 
