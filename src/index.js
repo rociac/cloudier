@@ -31,13 +31,6 @@ const getWeather = async (location, unit) => {
   }
 };
 
-const searchLocation = () => {
-  const location = document.getElementById('search__input').value.trim();
-  const unit = document.getElementById('units').value;
-  setUnitState(unit);
-  getWeather(location, unit);
-};
-
 const setUnitState = (unit) => {
   switch (unit) {
     case 'metric':
@@ -46,7 +39,16 @@ const setUnitState = (unit) => {
     case 'imperial':
       checkbox.checked = true;
       break;
+    default:
+      break;
   }
+};
+
+const searchLocation = () => {
+  const location = document.getElementById('search__input').value.trim();
+  const unit = document.getElementById('units').value;
+  setUnitState(unit);
+  getWeather(location, unit);
 };
 
 const init = () => {

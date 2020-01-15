@@ -11,10 +11,10 @@ const domManager = (() => {
       default:
         break;
     }
-    return unit
+    return unit;
   };
 
-  const setInfo = weatherData => {
+  const setInfo = (weatherData) => {
     const infoElements = `
   <div class="info__top">${weatherData.name}, ${weatherData.sys.country}</div>
   <div class="info__bottom">
@@ -30,7 +30,7 @@ const domManager = (() => {
     return infoElements;
   };
 
-  const setBackground = weatherData => {
+  const setBackground = (weatherData) => {
     switch (weatherData) {
       case 'Clouds':
         body.style.backgroundImage = 'url(https://images.unsplash.com/photo-1444402185522-47a923ee3e25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)';
